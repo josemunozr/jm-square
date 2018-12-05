@@ -1,6 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ul>
+<!-- <ul>
   <ng-container *ngFor="let item of lugares">
     <li *ngIf="item.active">{{item.name}}</li>
   </ng-container>
-</ul>
+</ul> -->
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

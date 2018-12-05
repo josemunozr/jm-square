@@ -13,6 +13,9 @@ export class AppComponent {
     { active: true, name: "ítem 3" },
   ];
 
+  lat: number = -33.4727092;
+  lng: number = -70.7699141;
+
   constructor() {
 
   }
