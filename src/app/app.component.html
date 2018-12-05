@@ -1,10 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!-- <ul>
-  <ng-container *ngFor="let item of lugares">
-    <li *ngIf="item.active">{{item.name}}</li>
-  </ng-container>
-</ul> -->
-
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
+<hr>
+<ul>
+  <ng-container *ngFor="let item of lugares">
+    <li *ngIf="item.active">{{item.name}}</li>
+  </ng-container>
+</ul>
+
+<ul>
+  <ng-container *ngFor="let item of lugares; let i = index">
+    <li [ngStyle]="{color: (item.active) ? 'black': 'gray'}" [ngClass]="{'numero-par': (i+1) % 2 !== 0}">{{item.name}}</li>
+  </ng-container>
+</ul>
