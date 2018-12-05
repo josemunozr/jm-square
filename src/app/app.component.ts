@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jm-square';
+  lugares: any = [
+    { active: true, name: "ítem 1" },
+    { active: false, name: "ítem 2" },
+    { active: true, name: "ítem 3" },
+  ];
+
+  constructor() {
+
+  }
+
 }
