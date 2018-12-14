@@ -4,13 +4,18 @@
 </agm-map>
 <hr>
 <ul>
-  <ng-container *ngFor="let item of lugares">
-    <li *ngIf="item.active">{{item.name}}</li>
+  <ng-container *ngFor="let lugar of lugares">
+    <li *ngIf="lugar.active">{{lugar.name}}</li>
   </ng-container>
 </ul>
 
 <ul>
-  <ng-container *ngFor="let item of lugares; let i = index">
-    <li [ngStyle]="{color: (item.active) ? 'black': 'gray'}" [ngClass]="{'numero-par': (i+1) % 2 !== 0}">{{item.name}}</li>
+  <ng-container *ngFor="let lugar of lugares; let i = index">
+    <li [ngStyle]="{color: (lugar.active) ? 'black': 'gray'}" [ngClass]="{'numero-par': (i+1) % 2 !== 0}" [ngSwitch]="lugar.cercania">
+      {{lugar.name}} -
+      <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Muy Cercano</span>
+      <span *ngSwitchCase="2" [ngStyle]="{color: 'black'}">Cercano</span>
+      <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Muy Lejano</span>
+    </li>
   </ng-container>
 </ul>
