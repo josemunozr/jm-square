@@ -11,7 +11,8 @@
 
 <ul>
   <ng-container *ngFor="let lugar of lugares; let i = index">
-    <li [ngStyle]="{color: (lugar.active) ? 'black': 'gray'}" [ngClass]="{'numero-par': (i+1) % 2 !== 0}" [ngSwitch]="lugar.cercania">
+    <li [ngStyle]="{color: (lugar.active) ? 'black': 'gray'}" [ngClass]="{'numero-par': (i+1) % 2 !== 0}" [ngSwitch]="lugar.cercania"
+      [resaltar]="lugar.plan">
       {{lugar.name}} -
       <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Muy Cercano</span>
       <span *ngSwitchCase="2" [ngStyle]="{color: 'black'}">Cercano</span>
