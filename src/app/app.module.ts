@@ -6,6 +6,7 @@ import { ContarClicksDirective } from './directives/contar-clicks.directive';
 import { ResaltarDirective } from './directives/resaltar.directive';
 import { DetalleComponent } from "./detalle/detalle.component";
 import { LugaresComponent } from "./lugares/lugares.component";
+import { ContactoComponent } from "./contacto/contacto.component";
 
 
 import { Routes, RouterModule } from "@angular/router";
@@ -13,7 +14,8 @@ import { Routes, RouterModule } from "@angular/router";
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
-  { path: 'detalle/:id', component: DetalleComponent }
+  { path: 'detalle/:id', component: DetalleComponent },
+  { path: 'contacto', component: ContactoComponent }
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     ResaltarDirective,
     ContarClicksDirective,
     DetalleComponent,
-    LugaresComponent
+    LugaresComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
