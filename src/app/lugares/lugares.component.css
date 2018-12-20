@@ -6,3 +6,7 @@ agm-map {
   background-color: aliceblue;
   color: blue;
 }
+
+.margin-2em {
+	margin: 2em;
+}
