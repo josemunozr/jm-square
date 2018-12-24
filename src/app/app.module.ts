@@ -13,6 +13,9 @@ import { CrearComponent } from "./crear/crear.component";
 import { LugaresService } from "./services/lugares.service";
 
 import { Routes, RouterModule } from "@angular/router";
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
@@ -39,6 +42,8 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyDcl4gkDV4Rs2SrAxhZyfx-b3AepnUSC_Y'
     }),
     RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     LugaresService
