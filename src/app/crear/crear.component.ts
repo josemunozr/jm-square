@@ -11,6 +11,10 @@ export class CrearComponent {
 	constructor(private lugaresService: LugaresService) { }
 
 	handleGuadarLugar() {
+		this.lugar.id = Date.now();
+		this.lugar.active = true;
 		this.lugaresService.guardarLugar(this.lugar)
+		alert('Lugar creado on éxito');
+		this.lugar = {};
 	}
 }
