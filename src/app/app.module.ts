@@ -2,6 +2,7 @@ import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
+import { HttpModule } from "@angular/http";
 import { AppComponent } from './app.component';
 import { ContarClicksDirective } from './directives/contar-clicks.directive';
 import { ResaltarDirective } from './directives/resaltar.directive';
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDcl4gkDV4Rs2SrAxhZyfx-b3AepnUSC_Y'
     }),

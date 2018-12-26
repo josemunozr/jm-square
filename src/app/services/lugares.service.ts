@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from '@angular/fire/database';
+import { environment } from '../../environments/environment'
+import { Http } from "@angular/http";
 @Injectable()
 
 export class LugaresService {
@@ -12,7 +14,7 @@ export class LugaresService {
   //   { id: 6, plan: 'gratuito', cercania: 3, distancia: 120, active: true, name: "Zapateria el clavo" },
   // ];
 
-  constructor(private afDB: AngularFireDatabase) { }
+  constructor(private afDB: AngularFireDatabase, private http: Http) { }
 
   public getLugares() {
     return this.afDB.list('lugares/').valueChanges();
@@ -24,5 +26,10 @@ export class LugaresService {
 
   public guardarLugar(lugar) {
     this.afDB.database.ref(`lugares/${lugar.id}`).set(lugar);
+  }
+
+  public getLocation(direction) {
+    let apiKey = environment.firebase.apiKey
+    return this.http.get(`https://maps.google.com/maps/api/geocode/json?address=${direction}&key=${apiKey}`)
   }
 }

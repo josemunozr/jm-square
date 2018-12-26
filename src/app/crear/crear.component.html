@@ -17,6 +17,14 @@
 		<br>
 		<label>Plan</label>
 		<input type="text" class="form-control" [(ngModel)]="lugar.plan" />
+		<br>
+		<h3>Datos de dirección</h3>
+		<label>Calle y número</label>
+		<input type="text" class="form-control" [(ngModel)]="lugar.direction" />
+		<label>Ciudad</label>
+		<input type="text" class="form-control" [(ngModel)]="lugar.city" />
+		<label>País</label>
+		<input type="text" class="form-control" [(ngModel)]="lugar.country" />
 		<hr>
 		<div class="btn btn-primary" (click)="handleGuadarLugar()">Enviar</div>
 		<div class="btn btn-default" routerLink="/lugares">Cancelar</div>
