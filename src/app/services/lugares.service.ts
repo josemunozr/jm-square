@@ -28,8 +28,16 @@ export class LugaresService {
     this.afDB.database.ref(`lugares/${lugar.id}`).set(lugar);
   }
 
+  public editarLugar(lugar) {
+    this.afDB.database.ref(`lugares/${lugar.id}`).set(lugar);
+  }
+
   public getLocation(direction) {
     let apiKey = environment.firebase.apiKey
     return this.http.get(`https://maps.google.com/maps/api/geocode/json?address=${direction}&key=${apiKey}`)
+  }
+
+  public getLugar(id) {
+    return this.afDB.database.ref(`lugares/${id}`).once('value')
   }
 }
