@@ -12,7 +12,6 @@ export class CrearComponent {
   id: any = null;
   constructor(private lugaresService: LugaresService, private route: ActivatedRoute) {
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
     if (this.id != 'new') {
       this._getDatosLugar(this.id);
     }
@@ -32,8 +31,13 @@ export class CrearComponent {
         } else {
           this.lugar.id = Date.now();
           this.lugar.active = true;
-          alert('Lugar creado on éxito');
-          this.lugar = {};
+          debugger;
+          this.lugaresService.guardarLugar(this.lugar)
+            .subscribe(() => {
+              alert('Lugar creado on éxito');
+              this.lugar = {};
+            })
+
         }
       })
   }
