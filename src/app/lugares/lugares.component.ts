@@ -17,7 +17,7 @@ export class LugaresComponent {
   constructor(private lugaresService: LugaresService) {
     lugaresService.getLugares()
       .subscribe(response => {
-        let data = response.json()
+        let data = response;
         this.lugares = Object.keys(data).map(key => data[key])
       });
   }
