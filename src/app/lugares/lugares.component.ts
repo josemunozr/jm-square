@@ -19,6 +19,8 @@ export class LugaresComponent {
       .subscribe(response => {
         let data = response;
         this.lugares = Object.keys(data).map(key => data[key])
+      }, error => {
+        alert(`Tenemos dificultades, disculpe las molestias. Error : ${error.statusText}`);
       });
   }
 }

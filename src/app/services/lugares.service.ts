@@ -49,7 +49,6 @@ export class LugaresService {
   }
 
   public getLugar(id) {
-    // return this.afDB.database.ref(`lugares/${id}`).once('value')
-    return this.http.get(`${this.API_ENDPOINT}/lugares.json`)
+    return this.afDB.database.ref(`lugares/${id}`).once('value')
   }
 }
