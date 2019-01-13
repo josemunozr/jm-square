@@ -17,6 +17,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { LinkifysrcPipe } from './pipe/linkifysrc.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinkifysrcPipe
   ],
   imports: [
     BrowserModule,

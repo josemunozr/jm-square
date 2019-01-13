@@ -9,9 +9,13 @@
       <div class="btn btn-primary margin-2em" routerLink="/crear/new">Crear nuevo negocio</div>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
-          <a routerLink="/crear/{{lugar.id}}">
-            <li *ngIf="lugar.active" class="list-group-item">{{lugar.name}}</li>
-          </a>
+          <li *ngIf="lugar.active" class="list-group-item">
+              <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.name}}</h3></a>
+            <br>
+            <small>Creado: {{lugar.id | date:'fullDate'}}</small>
+            <br>
+            <p [innerHtml]="lugar.description | linkifysrc"></p>
+          </li>
         </ng-container>
       </ul>
     </div>
