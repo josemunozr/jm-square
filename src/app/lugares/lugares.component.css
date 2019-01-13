@@ -10,3 +10,9 @@ agm-map {
 .margin-2em {
 	margin: 2em;
 }
+
+.contenedorAnimable {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
