@@ -3,8 +3,7 @@
 </agm-map>
 <hr>
 <div class="container">
-  <div class="contenedorAnimable" [@contenedorAnimable]="state"></div> 
-  <a  class="btn btn-default" (click)="animar()">Animate!</a>
+  <a class="btn btn-default" (click)="animar()">Animate!</a>
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares cercanos</h2>
@@ -12,7 +11,9 @@
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
           <li *ngIf="lugar.active" class="list-group-item">
-              <a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.name}}</h3></a>
+            <a routerLink="/crear/{{lugar.id}}">
+              <h3>{{lugar.name}}</h3>
+            </a>
             <br>
             <small>Creado: {{lugar.id | date:'fullDate'}}</small>
             <br>
@@ -21,8 +22,17 @@
         </ng-container>
       </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" [@contenedorAnimable]="state">
       <h2>Destacados</h2>
+      <ng-container *ngFor="let lugar of lugares">
+        <div *ngIf="lugar.plan == 'pagado'" class="alert alert-warning pd-10">
+          <a routerLink="/crear/{{lugar.id}}">
+            <h3>{{lugar.name}}</h3>
+          </a>
+          <br>
+          <p [innerHtml]="lugar.description | linkifysrc"></p>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
