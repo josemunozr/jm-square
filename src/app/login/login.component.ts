@@ -7,14 +7,14 @@ import { AutorizacionService } from '../services/autorizacion.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loginParams: any = {};
   constructor(private autorizacionService: AutorizacionService) { }
 
   ngOnInit() {
   }
 
-  public login(email, password) {
-    this.autorizacionService.login(email, password);
+  public login() {
+    this.autorizacionService.login(this.loginParams.email, this.loginParams.password);
   }
 
 }
