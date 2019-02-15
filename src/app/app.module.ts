@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LinkifysrcPipe } from './pipe/linkifysrc.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     LugaresService,
-    AutorizacionService
+    AutorizacionService,
+    AngularFireAuth
   ],
   bootstrap: [AppComponent]
 })

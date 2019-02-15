@@ -4,12 +4,12 @@
       <div class="jumbotron">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" />
+          <input type="email" [(ngModel)]="registro.email" class="form-control" />
           <br>
           <label>Contraseña</label>
-          <input type="password" class="form-control" />
+          <input type="password" [(ngModel)]="registro.password" class="form-control" />
           <hr>
-          <div (click)="registrarse('email', 'pass')" class="btn btn-primary btn-block">Registrarse!</div>
+          <div (click)="registrarse()" class="btn btn-primary btn-block">Registrarse!</div>
           <div class="btn btn-default btn-block">Cancelar</div>
         </div>
       </div>
