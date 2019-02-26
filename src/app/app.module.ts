@@ -23,13 +23,14 @@ import { LinkifysrcPipe } from './pipe/linkifysrc.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Guard } from './services/guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'crear/:id', component: CrearComponent },
+  { path: 'crear/:id', component: CrearComponent, canActivate: [Guard] },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
 ];
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
   providers: [
     LugaresService,
     AutorizacionService,
-    AngularFireAuth
+    AngularFireAuth,
+    Guard
   ],
   bootstrap: [AppComponent]
 })

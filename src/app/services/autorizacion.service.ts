@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AutorizacionService {
 
   constructor(private angularFireAuth: AngularFireAuth) {
-
+    console.log(this.isLogged());
   }
 
   public login = (email, password) => {
@@ -13,7 +13,6 @@ export class AutorizacionService {
     this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
       .then(response => {
         alert('Login OK')
-        console.log(response);
       })
       .catch(error => {
         alert(`error al logearse: ${error}`);
@@ -25,10 +24,13 @@ export class AutorizacionService {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(response => {
         alert('Regristo OK')
-        console.log(response);
       })
       .catch(error => {
         alert(`error al registrarse: ${error}`);
       })
+  }
+
+  public isLogged() {
+    return this.angularFireAuth.authState;
   }
 }
