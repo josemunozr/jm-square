@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   loggedIn: boolean = false;
+  nameUser: string;
 
   constructor(private autorizacionServie: AutorizacionService, private router: Router) {
     this.autorizacionServie.isLogged()
       .subscribe(result => {
-        this.loggedIn = (result && result.uid) ? true : false;
+        if (result && result.uid) {
+          this.loggedIn = true
+          this.setDataUser()
+        } else {
+          this.loggedIn = false
+        }
       }, error => {
         this.loggedIn = false
       })
@@ -23,6 +29,11 @@ export class AppComponent {
     this.autorizacionServie.logout();
     alert("Sesión cerrada correctamente");
     this.router.navigate(['lugares']);
+  }
+
+  setDataUser() {
+    this.autorizacionServie.getDataUser()
+      .subscribe(data => this.nameUser = data.displayName)
   }
 
 }

@@ -15,7 +15,11 @@
       </li>
     </ul>
     <span class="navbar-text">
+
       <ul class="navbar-nav mr-auto">
+        <li *ngIf="loggedIn">
+          <a class="nav-link">{{nameUser}}</a>
+        </li>
         <li routerLinkActive="active" class="nav-item" *ngIf="!loggedIn">
           <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
         </li>

@@ -9,7 +9,8 @@
           <label>Contraseña</label>
           <input type="password" [(ngModel)]="loginParams.password" class="form-control" />
           <hr>
-          <div (click)="login()" class="btn btn-primary btn-block">Login!</div>
+          <div (click)="login()" class="btn btn-warning btn-block">Login con email!</div>
+          <div (click)="facebookLogin()" class="btn btn-primary btn-block">Login con facebook!</div>
           <div class="btn btn-default btn-block">Cancelar</div>
         </div>
       </div>
