@@ -14,13 +14,16 @@
         <a class="nav-link" routerLink="/contacto">Contacto</a>
       </li>
     </ul>
-    <span class="navbar-text" *ngIf="!loggedIn">
+    <span class="navbar-text">
       <ul class="navbar-nav mr-auto">
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="!loggedIn">
           <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="!loggedIn">
           <a class="nav-link" routerLink="/registro">Registro</a>
+        </li>
+        <li routerLinkActive="active" (click)="logout()" class="nav-item" *ngIf="loggedIn">
+          <a class="nav-link">Logout</a>
         </li>
       </ul>
     </span>
