@@ -46,8 +46,7 @@ const appRoutes: Routes = [
     CrearComponent,
     LinkifysrcPipe,
     LoginComponent,
-    RegistroComponent,
-    ReactiveFormsModule
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,8 @@ const appRoutes: Routes = [
     }),
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule
   ],
   providers: [
     LugaresService,
